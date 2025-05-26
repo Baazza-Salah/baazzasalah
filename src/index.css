@@ -1,0 +1,335 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Fira+Code:wght@400;500;700&family=VT323&family=Share+Tech+Mono&family=Source+Code+Pro:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* New color theme - blue/purple focused instead of green */
+    --background: 225 5% 5%;
+    --foreground: 225 100% 86%;
+
+    --card: 225 5% 8%;
+    --card-foreground: 225 100% 86%;
+
+    --popover: 225 5% 10%;
+    --popover-foreground: 225 100% 86%;
+
+    --primary: 220 80% 60%; /* Blue instead of green */
+    --primary-foreground: 225 5% 10%;
+
+    --secondary: 225 5% 15%;
+    --secondary-foreground: 225 100% 86%;
+
+    --muted: 225 5% 15%;
+    --muted-foreground: 225 30% 60%;
+
+    --accent: 220 80% 60%; /* Blue accent instead of green */
+    --accent-foreground: 225 5% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 225 100% 86%;
+
+    --border: 225 30% 20%;
+    --input: 225 5% 15%;
+    --ring: 220 80% 60%; /* Blue ring instead of green */
+
+    --radius: 0.375rem;
+    
+    /* Custom hacker theme colors - changed green to blue */
+    --cyber-green: #4b91f1;
+    --cyber-dark-green: #0a2342;
+    --cyber-dim-green: #1e70e8;
+    --cyber-bright-green: #72b1ff;
+    --cyber-red: #ff3e3e;
+    --cyber-dark: #080808;
+    --cyber-darker: #050505;
+    --cyber-navy: #001a33;
+    --cyber-muted: #131323;
+    --cyber-purple: #800080;
+    --cyber-dark-purple: #330033;
+    --cyber-bright-purple: #bb86fc;
+    --cyber-blue: #4b91f1;
+    --cyber-dark-blue: #0a2342;
+    --cyber-bright-blue: #72b1ff;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-cyber-dark text-foreground overflow-x-hidden font-mono;
+    background-image: 
+      linear-gradient(rgba(10, 35, 66, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 35, 66, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-hacker text-accent;
+  }
+
+  p, a, span, li, div {
+    @apply font-mono;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-darker;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/50 rounded-full;
+    border: 1px solid var(--cyber-dark-blue);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/60;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer components {
+  .cyber-border {
+    @apply border border-accent relative;
+    box-shadow: 0 0 5px hsl(var(--accent)), inset 0 0 5px hsl(var(--accent));
+  }
+  
+  .cyber-border::before {
+    content: "";
+    @apply absolute inset-0 border border-accent/60 scale-105 transition-transform duration-300;
+    box-shadow: 0 0 10px hsl(var(--accent));
+  }
+  
+  .cyber-border:hover::before {
+    @apply scale-110;
+    box-shadow: 0 0 15px hsl(var(--accent));
+  }
+  
+  .text-glow {
+    @apply text-accent;
+    text-shadow: 0 0 5px var(--cyber-blue), 0 0 10px rgba(75, 145, 241, 0.5);
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(75, 145, 241, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(75, 145, 241, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .matrix-code {
+    position: relative;
+    font-family: 'VT323', monospace;
+    font-size: 8px;
+    color: var(--cyber-blue);
+    text-shadow: 0 0 5px var(--cyber-blue);
+    line-height: 0.8;
+  }
+
+  .binary-line {
+    position: relative;
+    white-space: nowrap;
+    margin: 1px 0;
+    animation: binary-flow 10s linear infinite;
+  }
+
+  .glitch-text {
+    position: relative;
+    animation: glitch 1s infinite;
+  }
+
+  .glitch-overlay::before, .glitch-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  .glitch-overlay::before {
+    animation: glitch-horizontal 3s infinite linear alternate-reverse;
+    opacity: 0.5;
+  }
+
+  .glitch-overlay::after {
+    animation: glitch-vertical 2s infinite linear alternate-reverse;
+    opacity: 0.3;
+  }
+  
+  .terminal-window {
+    @apply bg-cyber-darker border border-accent/30 rounded-sm overflow-hidden font-mono text-accent p-4;
+    box-shadow: 0 0 15px rgba(75, 145, 241, 0.2);
+  }
+  
+  .terminal-header {
+    @apply flex items-center gap-2 border-b border-accent/20 pb-2 mb-3;
+  }
+  
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+  
+  .terminal-command {
+    @apply flex items-center gap-2 text-sm;
+  }
+  
+  .terminal-prompt {
+    @apply text-accent;
+  }
+  
+  .terminal-cursor {
+    @apply w-2 h-4 bg-accent inline-block animate-terminal-blink;
+  }
+  
+  .terminal-text {
+    @apply text-sm font-mono;
+  }
+  
+  .package-loading {
+    @apply h-1 bg-accent/20 overflow-hidden mt-2 rounded-sm;
+  }
+  
+  .package-progress {
+    @apply h-full w-1/4 bg-accent rounded-sm animate-package-load;
+  }
+
+  /* Scrollbar styling for terminal windows */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-cyber-dark;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-accent/30 rounded-full;
+  }
+
+  /* Noise background */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    animation: noise 8s infinite linear;
+  }
+}
+
+/* ... keep existing code (rest of the CSS with animations) */
+@keyframes binary-flow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-horizontal {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-1px); }
+  20%, 40%, 60%, 80% { transform: translateX(1px); }
+}
+
+@keyframes glitch-vertical {
+  0%, 100% { transform: translateY(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateY(-1px); }
+  20%, 40%, 60%, 80% { transform: translateY(1px); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes data-flow {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(20px); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typing-text {
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  border-right: 2px solid var(--cyber-blue);
+  animation: typing 3.5s steps(40, end),
+             blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--cyber-blue) }
+}
+
+@keyframes terminalType {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes commandAppear {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.command-line {
+  animation: commandAppear 0.3s ease-out forwards;
+}
+
+.typing-code {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--cyber-blue);
+  animation: typing 3.5s steps(40, end),
+             blink-caret 0.75s step-end infinite;
+  max-width: fit-content;
+}
+
+@keyframes matrix-fall {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0.3; }
+}
+
+@keyframes noise {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes radar-beam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  33% { opacity: 0.9; }
+  66% { opacity: 0.94; }
+}
