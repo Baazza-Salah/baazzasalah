@@ -181,7 +181,7 @@ const HeroSection: React.FC = () => {
               </a>
               
               <a 
-                href="public/BAAZZASalah-1.pdf"
+                href="BAAZZASalah-1.pdf"
                 className="group relative bg-cyber-muted border border-accent/30 hover:border-accent/60 text-white px-6 py-3 rounded transition-all overflow-hidden"
                 download
               >
