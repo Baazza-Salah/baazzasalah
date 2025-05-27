@@ -181,14 +181,11 @@ const HeroSection: React.FC = () => {
               </a>
               
               <a 
-                href="#projects" 
+                href="public/BAAZZASalah-1.pdf"
                 className="group relative bg-cyber-muted border border-accent/30 hover:border-accent/60 text-white px-6 py-3 rounded transition-all overflow-hidden"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                download
               >
-                <span className="relative z-10">View Projects</span>
+                <span className="relative z-10">Download CV</span>
                 <span className="absolute inset-0 bg-accent/5 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
                 <span className="absolute right-1 top-1 text-accent/20 opacity-0 group-hover:opacity-100 transition-opacity">
                   <Shield size={10} />
