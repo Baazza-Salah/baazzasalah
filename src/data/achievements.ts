@@ -27,7 +27,7 @@ export const achievements: Achievement[] = [
     date: "2023 - Present",
     location: "ENSET MOHAMMEDIA",
     skills: ["Leadership", "Cybersecurity", "Community Building", "Event Organization", "Technical Training"],
-    imageUrl: "n7sec.jpg",
+    imageUrl: "images/n7sec.jpg",
     type: 'activity'
   },
   {
