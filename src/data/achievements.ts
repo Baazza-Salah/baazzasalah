@@ -31,6 +31,18 @@ export const achievements: Achievement[] = [
     type: 'activity'
   },
   {
+    id: "n7chall-organizer",
+    title: "N7CHALL CTF Organizer",
+    description: "Organized and led the N7CHALL Capture The Flag competition, creating challenges and managing the event.",
+    longDescription: "Spearheaded the organization of N7CHALL, a Capture The Flag competition designed to test and improve cybersecurity skills among students and professionals. Developed a diverse range of challenges across multiple security domains, implemented the competition infrastructure, and coordinated a team of volunteers. The event successfully attracted participants from various educational institutions and helped promote cybersecurity awareness and education.",
+    date: "May 2025",
+    location: "ENSET MOHAMMEDIA",
+    organizer: "N7SEC",
+    skills: ["Event Management", "Challenge Development", "Technical Infrastructure", "Community Engagement"],
+    imageUrl: "n7chall.jpg",
+    type: 'activity'
+  },
+  {
     id: "dgssi-ctf",
     title: "DGSSI CTF Participant",
     description: "Participated in the Moroccan General Directorate of Information Systems Security (DGSSI) Capture The Flag competition.",
@@ -39,7 +51,7 @@ export const achievements: Achievement[] = [
     location: "Morocco",
     organizer: "Moroccan General Directorate of Information Systems Security",
     skills: ["CTF", "Cybersecurity", "Problem Solving", "Cryptography", "Web Exploitation"],
-    imageUrl: "src/images/dgssi.jpeg",
+    imageUrl: "dgssi.jpeg",
     type: 'activity',
     link: "https://www.dgssi.gov.ma/"
   },
@@ -52,7 +64,7 @@ export const achievements: Achievement[] = [
     location: "Morocco",
     organizer: "AKASEC",
     skills: ["CTF", "Network Security", "Binary Exploitation", "Reverse Engineering"],
-    imageUrl: "src/images/akasec.jpg",
+    imageUrl: "akasec.jpg",
     type: 'activity',
     link: "https://www.facebook.com/AkaSec.ma/"
   },
@@ -65,7 +77,7 @@ export const achievements: Achievement[] = [
     location: "RABAT",
     organizer: "DFIR212",
     skills: ["Digital Forensics", "Incident Response", "Threat Analysis", "Evidence Collection"],
-    imageUrl: "src/images/dfir.jpeg",
+    imageUrl: "dfir.jpeg",
     type: 'activity',
     link: "https://www.facebook.com/DFIR212/"
   },
@@ -78,20 +90,8 @@ export const achievements: Achievement[] = [
     location: "ENSIAS RABAT",
     organizer: "mCrypt",
     skills: ["Advanced Cybersecurity", "Penetration Testing", "Security Analysis", "Problem Solving"],
-    imageUrl: "src/images/mcsc.jpeg",
+    imageUrl: "mcsc.jpeg",
     type: 'activity',
     link: "https://www.facebook.com/MoroccoCyberSpaceChallenge/"
-  },
-  {
-    id: "n7chall-organizer",
-    title: "N7CHALL CTF Organizer",
-    description: "Organized and led the N7CHALL Capture The Flag competition, creating challenges and managing the event.",
-    longDescription: "Spearheaded the organization of N7CHALL, a Capture The Flag competition designed to test and improve cybersecurity skills among students and professionals. Developed a diverse range of challenges across multiple security domains, implemented the competition infrastructure, and coordinated a team of volunteers. The event successfully attracted participants from various educational institutions and helped promote cybersecurity awareness and education.",
-    date: "May 2025",
-    location: "ENSET MOHAMMEDIA",
-    organizer: "N7SEC",
-    skills: ["Event Management", "Challenge Development", "Technical Infrastructure", "Community Engagement"],
-    imageUrl: "src/images/n7chall.jpg",
-    type: 'activity'
   }
 ];
