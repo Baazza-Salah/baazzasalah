@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Briefcase, BarChart, Award, CheckCircle } from 'lucide-react';
+import { Briefcase, BarChart, Award, CheckCircle, Code, Palette, Star, ExternalLink, Activity } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Section from './Section';
 import { cn } from '@/lib/utils';
+import { achievements as allAchievements } from '@/data/achievements';
 
 interface Experience {
   position: string;
@@ -12,6 +14,8 @@ interface Experience {
   highlights: string[];
   tags?: string[];
 }
+
+// We're now importing the Achievement interface from the data file
 
 const ExperienceSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -65,6 +69,10 @@ const ExperienceSection: React.FC = () => {
   };
 
   const matrixLines = generateMatrixLines(15);
+
+  // Now using the imported achievements from the data file
+
+
 
   return (
     <Section id="experience" title="Experience">
@@ -190,6 +198,93 @@ const ExperienceSection: React.FC = () => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Achievements Section */}
+      <div className="mt-20">
+        <h2 className="text-2xl font-bold text-cyber-green mb-6 flex items-center">
+          <Award className="w-6 h-6 mr-2" /> 
+          Professional Achievements & Activities
+        </h2>
+
+        <div className="mb-8 flex flex-wrap gap-2">
+          <div
+            className="px-4 py-2 rounded-md text-sm bg-cyber-green/20 text-cyber-green border border-cyber-green/50"
+          >
+            All Achievements
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {allAchievements.map((achievement, index) => (
+            <Link 
+              key={index}
+              to={`/achievement/${achievement.id}`}
+              className="group bg-cyber-muted border border-cyber-green/20 rounded-lg overflow-hidden hover:border-cyber-green/40 transition-all duration-300"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <div className="absolute inset-0 bg-cyber-green/10 group-hover:bg-cyber-green/5 transition-colors"></div>
+                <img 
+                  src={achievement.imageUrl} 
+                  alt={achievement.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute top-2 right-2 bg-cyber-navy/80 px-2 py-1 rounded flex items-center gap-1 text-xs">
+                  {achievement.type === 'language' ? (
+                    <>
+                      <Code className="w-4 h-4 text-cyber-green" />
+                      <span className="text-cyber-green">Programming</span>
+                    </>
+                  ) : achievement.type === 'design' ? (
+                    <>
+                      <Palette className="w-4 h-4 text-cyber-green" />
+                      <span className="text-cyber-green">Design</span>
+                    </>
+                  ) : (
+                    <>
+                      <Activity className="w-4 h-4 text-cyber-green" />
+                      <span className="text-cyber-green">Activity</span>
+                    </>
+                  )}
+                </div>
+              </div>
+              
+              <div className="p-5">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-cyber-green">{achievement.title}</h3>
+                  {achievement.certification && (
+                    <div className="flex items-center text-xs text-cyber-green bg-cyber-dark-green/30 px-2 py-1 rounded">
+                      <Star className="w-3 h-3 mr-1" />
+                      Certified
+                    </div>
+                  )}
+                </div>
+                
+                <p className="text-gray-400 mb-4">{achievement.description}</p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {achievement.skills.map((skill, i) => (
+                    <span 
+                      key={i}
+                      className="bg-cyber-navy px-2 py-1 rounded text-xs text-cyber-green"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                
+                {achievement.certification && (
+                  <div className="mt-4 pt-3 border-t border-cyber-green/20 text-sm text-gray-400">
+                    <div className="flex items-center">
+                      <Award className="w-4 h-4 mr-2 text-cyber-green" />
+                      {achievement.certification}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </Section>
