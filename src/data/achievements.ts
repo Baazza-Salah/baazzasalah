@@ -24,7 +24,7 @@ export const achievements: Achievement[] = [
     title: "N7SEC Security Club Founder and Leader",
     description: "Founded and led N7SEC, a cybersecurity club dedicated to promoting security awareness and skills development.",
     longDescription: "Established N7SEC as a platform for students to learn about cybersecurity through workshops, competitions, and collaborative projects. Organized regular meetings, training sessions, and invited industry professionals to share insights. Built a community of security enthusiasts and fostered an environment of continuous learning and practical skill development.",
-    date: "2023 - Present",
+    date: "2024 - Present",
     location: "ENSET MOHAMMEDIA",
     skills: ["Leadership", "Cybersecurity", "Community Building", "Event Organization", "Technical Training"],
     imageUrl: "n7sec.jpg",
